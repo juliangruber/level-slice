@@ -1,0 +1,36 @@
+{
+  "name": "level-slice",
+  "version": "0.0.0",
+  "description": "Stream LevelDB ranges by chunk indexes",
+  "main": "index.js",
+  "dependencies": {
+    "level-store": "~3.2.0",
+    "tmp-stream": "0.0.1"
+  },
+  "devDependencies": {
+    "tape": "~1.0.2",
+    "level": "~0.9.0",
+    "split": "~0.2.5"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/juliangruber/level-slice.git"
+  },
+  "homepage": "https://github.com/juliangruberlevel-slice",
+  "author": {
+    "name": "Julian Gruber",
+    "email": "julian@juliangruber.com",
+    "url": "http://twitter.com/juliangruber"
+  },
+  "license": "MIT",
+  "keywords": [
+    "level",
+    "leveldb",
+    "levelup",
+    "stream",
+    "slice"
+  ]
+}
