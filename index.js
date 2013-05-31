@@ -9,30 +9,42 @@ function Slice (db, key) {
   this.key = key;
 }
 
-Slice.prototype.slice = function (start, end) {
+Slice.prototype.slice = function (start, end, reverse, follow) {
   if (typeof start == 'undefined') start = 0;
   if (typeof end == 'undefined') end = 0;
 
   return start >= 0
-    ? this._read(start, end)
-    : this._readReverse(start, end);
+    ? this._read(start, end, reverse, follow)
+    : this._readReverse(start, end, reverse, follow);
 };
 
-Slice.prototype._read = function (start, end) {
+Slice.prototype.sliceReverse = function (start, end) {
+  return this.slice(start, end, true);
+};
+
+Slice.prototype.follow = function (start, end) {
+  return this.slice(start, end, false, true);
+};
+
+Slice.prototype._read = function (start, end, reverse, follow) {
   return this.store.createReadStream(this.key, {
     gte: start,
-    lt: end
+    lt: end,
+    reverse: reverse,
+    live: follow
   });
 };
 
-Slice.prototype._readReverse = function (start, end) {
+Slice.prototype._readReverse = function (start, end, reverse, follow) {
   var self = this;
   var tmp = tmpStream();
 
   self.store.head(self.key, { index: true }, function (err, chunk) {
     tmp.replace(self.store.createReadStream(self.key, {
       gt: chunk.index + start,
-      lte: chunk.index + end
+      lte: chunk.index + end,
+      reverse: reverse,
+      live: follow
     }));
   });
 

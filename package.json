@@ -4,7 +4,7 @@
   "description": "Stream LevelDB ranges by chunk indexes",
   "main": "index.js",
   "dependencies": {
-    "level-store": "~3.2.0",
+    "level-store": "git://github.com/juliangruber/level-store.git#3.3.0",
     "tmp-stream": "0.0.1"
   },
   "devDependencies": {
