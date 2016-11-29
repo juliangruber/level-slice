@@ -5,12 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "level-store": "git://github.com/juliangruber/level-store.git#3.3.0",
-    "tmp-stream": "0.0.1"
+    "tmp-stream": "0.3.2"
   },
   "devDependencies": {
-    "tape": "~1.0.2",
-    "level": "~0.9.0",
-    "split": "~0.2.5"
+    "tape": "~4.6.3",
+    "level": "~1.5.0",
+    "split": "~1.0.0"
   },
   "scripts": {
     "test": "tape test/*.js"
