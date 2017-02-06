@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "tape": "~4.6.3",
-    "level": "~1.5.0",
+    "level": "~1.6.0",
     "split": "~1.0.0"
   },
   "scripts": {
